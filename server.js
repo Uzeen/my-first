@@ -1,7 +1,7 @@
 const express = require('express');
 var app = express();
 var hbs = require('hbs');
-const port = process.argv.PORT || 3000; 
+const port = process.env.PORT || 3000; 
 app.get('/',(req,res)=>{
     res.send("<h1>Hi Uzeen Successfully rendered</h1>");
 });
