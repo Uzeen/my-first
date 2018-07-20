@@ -4,7 +4,7 @@ var hbs  = require('hbs');
 var qs  = require("querystring");
 
 var app = express();
-
+const port = process.env.PORT | 3000 ;
 app.use(express.static(__dirname + "/image"));
 app.get("/",(req,res) =>{
     res.render('home.hbs');
@@ -23,4 +23,6 @@ app.post('/calc',(req,res)=>{
         res.render('about.hbs',qs.parse(data));
     })
 });
-app.listen(3000);
+app.listen(port,()=>{
+    console.log("Server listening at port :" + port);
+});
