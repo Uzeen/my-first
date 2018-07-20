@@ -23,7 +23,9 @@ app.post('/calc',(req,res)=>{
     req.on('end',()=>{
         console.log(qs.parse(data));
         res.render('about.hbs',qs.parse(data));
-    })
+        data = "";
+    });
+    
 });
 app.listen(port,()=>{
     console.log("Server listening at port :" + port);
