@@ -1,20 +1,26 @@
-const express = require('express');
-const hbs = require("hbs");
+var express = require("express");
+var path = require("path");
+var hbs  = require('hbs');
+var qs  = require("querystring");
+
 var app = express();
-const port = process.env.PORT || 3000; 
 
-// app.use((req,res,next) => {
-//     console.log("Maintainance page");
-// });
-
-app.get('/',(req,res)=>{
-    res.render('home.hbs',{
-        time : `${new Date().toString().substring(16,24)} IST` 
+app.use(express.static(__dirname + "/image"));
+app.get("/",(req,res) =>{
+    res.render('home.hbs');
+});
+app.get("/calc",(req,res)=>{
+    console.log(req.url);
+    res.render("calc.hbs");
+});
+var data = "";
+app.post('/calc',(req,res)=>{
+    req.on('data',(chunk)=>{
+        data += chunk;
     });
+    req.on('end',()=>{
+        console.log(qs.parse(data));
+        res.render('about.hbs',qs.parse(data));
+    })
 });
-app.get('/about',(req,res)=>{
-    res.render('about.hbs');
-});
-app.listen(port,()=>{
-    console.log(`Server started on port ${port}`);
-});
+app.listen(3000);
