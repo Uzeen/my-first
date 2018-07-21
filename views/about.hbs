@@ -2,13 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    <h1>Hey this is About Page</h1>
-    <p>This is under Development, your typed location is {{ loc }}</p>
-    <h3><a href="/">Back</a></h3>
+    <div class="container"><div class="row">
+        <div class = "col-sm-3 col-md-6 col-lg-12" style="background-color:purple;width: 100%; top:-20px">
+            <h3><a href="/calc" style="color: white; top:10px">
+          <span class="glyphicon glyphicon-chevron-left" style="top:10px"></span>
+        </a></h3>
+            <center><h1 style="color: antiquewhite">&#8451 - Zone </h1></br></br></center>
+     </div></div>
+     <table class="table">
+         <thead>
+             <tr><th colspan="2"><center>Details</center></th></tr>
+         </thead>
+    <tbody><h3>
+    <tr><td colspan="1">Address</td>        <td colspan="1">{{ Address }}</td></tr>
+    <tr><td colspan="1">Time Zone</td>      <td colspan="1">{{ timezone }}</td></tr>
+    <tr><td colspan="1">Climate</td>        <td colspan="1">{{ climate }}</td></tr>
+    <tr><td colspan="1">Time</td>           <td colspan="1" >{{ time }}</td></tr>
+    <tr><td colspan="1">Date</td>           <td colspan="1">{{ date }}</td></tr> 
+    <tr><td colspan="1">Temperature</td>    <td colspan="1">{{ temp }} &#8451</td></tr>
+    
+    </tbody></h3>
+     </table>
+    </br>
+     <form method="GET" action="/calc"><center>
+     <button type="submit" class="btn btn-primary btn-md">Want to search for more Places</button>
+     </center></form>
+    </br>
+    </div>
 </body>
 </html>
